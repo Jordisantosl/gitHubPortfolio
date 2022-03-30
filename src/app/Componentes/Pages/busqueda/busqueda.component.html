@@ -1,0 +1,20 @@
+<section class="ae-container-fluid rk-main">
+    <section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
+        <div *ngIf="loading" class="text-center">
+            <h1>Loading</h1>
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
+        <div *ngIf="!loading" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4">
+            <a *ngFor= "let prodidx of productos_encontrados"  [routerLink]="['/item', prodidx.cod]" class="rk-item ae-masonry__item">
+                <img src="assets/productos/{{prodidx.url}}.jpg">
+                <div class="item-meta">
+                    <h2>{{prodidx.titulo}}</h2>
+                    <p>{{prodidx.categoria}}</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</section>
+
